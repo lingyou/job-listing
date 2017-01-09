@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
   def index
-    @jobs = Job.all
+    @jobs = Job.publicjobs
   end
   def new
     @job = Job.new
