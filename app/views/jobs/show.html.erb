@@ -2,7 +2,7 @@
   <tbody>
     <tr>
       <td><%= @job.title %></td>
-      <td><%= @job.description %></td>
+      <td><%= simple_format(@job.description) %></td>
     </tr>
   </tbody>
 </table>
