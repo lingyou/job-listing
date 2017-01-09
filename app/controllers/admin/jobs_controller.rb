@@ -8,6 +8,9 @@ class Admin::JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    if @job.is_hidden
+      redirect_to admin_jobs_path, alert: "This job is not available."
+    end
   end
 
   def new
