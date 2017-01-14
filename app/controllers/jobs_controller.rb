@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :check_job_is_hidden, only: [:show, :edit, :update, :destroy]
   def index
     @jobs = Job.where(is_hidden: false).order("created_at DESC")
   end
@@ -9,11 +10,9 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
   end
 
   def edit
-    @job = Job.find(params[:id])
   end
 
   def create
@@ -25,7 +24,6 @@ class JobsController < ApplicationController
     end
   end
   def update
-    @job = Job.find(params[:id])
     if @job.update(job_params)
       redirect_to job_path(@job)
     else
@@ -33,13 +31,19 @@ class JobsController < ApplicationController
     end
   end
 
-    def destroy
-      @job = Job.find(params[:id])
-      @job.destroy
-      redirect_to jobs_path, alert: "Job deleted"
-    end
+  def destroy
+    @job.destroy
+    redirect_to jobs_path, alert: "Job deleted"
+  end
   private
   def job_params
     params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden)
+  end
+  def check_job_is_hidden
+    @job = Job.find(params[:id])
+    if @job.is_hidden
+      flash[:warning] = "This job is archieved."
+      redirect_to root_path
+    end
   end
 end
