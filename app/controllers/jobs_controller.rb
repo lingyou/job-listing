@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_action :check_job_is_hidden, only: [:show, :edit, :update, :destroy]
+  before_action :require_is_admin, only: [:new, :create, :update, :edit, :destroy]
   def index
     @jobs = case params[:order]
       when 'by_lower_bound'
