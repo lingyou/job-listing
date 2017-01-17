@@ -3,8 +3,9 @@
 </div>
 <div class="dropdown clearfix pull-right">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aira-haspopup="true" aira-expanded="true">
-    排序
+    按条件排序查看<b class="caret"></b>
   </button>
+
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
     <li>
       <%= link_to("按照薪资下限排序", jobs_path(order: "by_lower_bound"))%>
