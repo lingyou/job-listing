@@ -26,3 +26,26 @@
   text-align: center;
   color: white;
 }
+
+.carousel-inner .item img {
+  background: center fixed;
+  width: 100%;
+  height: 900px;
+  margin: auto;
+  background-size: cover;
+}
+
+.carousel-inner .item  h2 {
+  color: black;
+}
+.carousel-caption {
+  bottom: -35px;
+}
+.carousel-caption span.small{
+  font: 20px bold;
+  color: black;
+}
+.carousel-caption span.large {
+  font: 30px bold;
+  color: black;
+}
