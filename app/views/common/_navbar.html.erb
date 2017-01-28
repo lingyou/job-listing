@@ -35,9 +35,9 @@
                     <div class="modal-content" style="height:450px;">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h2 class="text-center">Welcome to join us</h2>
                         </div>
                       <div class="modal-body">
-                            <h2 class="text-center">Welcome to join us</h2>
                                 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form' })  do |f| %>
                                 <%= f.error_notification %>
 
@@ -65,10 +65,10 @@
                     <div class="modal-content">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h2 class="text-center">Welcome</h2>
                         </div>
                       <div class="modal-body" style="height:400px;">
-                        <h2 class="text-center">Welcome</h2>
-                        <hr>
+
                             <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form"}) do |f| %>
                             <div class="form-inputs col-sm-6 col-sm-offset-3">
                                 <%= f.input :email, required: false, autofocus: true, placeholder: "Email" %>
